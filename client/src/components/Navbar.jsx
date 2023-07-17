@@ -18,7 +18,7 @@ export default function Navbar() {
     const [user, setUser] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:3001/api/username").then((response) => {
+        axios.get("https://blog-project-server-phi.vercel.app/api/username").then((response) => {
 
 
             setUser(response.data);
@@ -30,7 +30,7 @@ export default function Navbar() {
 
     const log = () => {
 
-        axios.post("http://localhost:3001/api/logout", {
+        axios.post("https://blog-project-server-phi.vercel.app/api/logout", {
 
 
         }).then((response) => {

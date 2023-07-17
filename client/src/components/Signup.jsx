@@ -22,7 +22,7 @@ export default function Signup() {
         form.append('username', username);
         form.append('password', password);
 
-        axios.post("http://localhost:3001/api/users", form).then(() => {
+        axios.post("https://blog-project-server-phi.vercel.app/api/users", form).then(() => {
             alert('success for insert');
         })
 

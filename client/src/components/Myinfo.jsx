@@ -7,7 +7,7 @@ import Navbar from "./Navbar";
 
 export default function Myinfo() {
 
-
+    axios.defaults.withCredentials = true;
 
     const handleDelete = (id) => {
         axios.delete(`https://blog-project-server-phi.vercel.app/api/delete/${id}`)

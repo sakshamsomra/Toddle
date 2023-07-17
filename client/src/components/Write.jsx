@@ -45,10 +45,10 @@ export default function Write() {
 
 
 
-  const submitForm = () => {
+  const submitForm = (event) => {
 
     
-
+    event.preventDefault();
 
     const formData = new FormData();
     formData.append('title', title);

@@ -10,7 +10,7 @@ export default function Myinfo() {
 
 
     const handleDelete = (id) => {
-        axios.delete(`http://localhost:3001/api/delete/${id}`)
+        axios.delete(`https://blog-project-server-phi.vercel.app/api/delete/${id}`)
           .then((response) => {
             console.log(response.data);
             alert('Topic deleted ')
@@ -31,7 +31,7 @@ export default function Myinfo() {
     const [user, setUser] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:3001/api/username").then((response) => {
+        axios.get("https://blog-project-server-phi.vercel.app/api/username").then((response) => {
 
 
             setUser(response.data);
@@ -47,7 +47,7 @@ export default function Myinfo() {
 
 
     useEffect(() => {
-        axios.get("http://localhost:3001/api/myfeed").then((response) => {
+        axios.get("https://blog-project-server-phi.vercel.app/api/myfeed").then((response) => {
 
 
             setList(response.data);

@@ -14,6 +14,7 @@ import axios from "axios";
 
 export default function Navbar() {
 
+    axios.defaults.withCredentials = true;
 
     const [user, setUser] = useState([]);
 

@@ -2,10 +2,13 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios";
 import Navbar from "./Navbar";
-import { Link } from "react-router-dom";
+
+import { Link, redirect, Route, useNavigate } from "react-router-dom";
+
 
 
 export default function Signup() {
+    const navigate = useNavigate();
 
     const [email, setEmail] = useState("")
     const [username, setUsername] = useState("")
@@ -26,6 +29,7 @@ export default function Signup() {
 
         axios.post("https://blog-project-server-phi.vercel.app/api/users", form).then(() => {
             alert('success for insert');
+            navigate("/");
         })
 
     }

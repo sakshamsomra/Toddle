@@ -26,7 +26,7 @@ export default function Landing() {
         formData.append('password', password);
 
 
-        axios.post("http://localhost:3001/api/login", formData).then((response) => {
+        axios.post("https://blog-project-server-phi.vercel.app/api/login", formData).then((response) => {
             if (response.data.message) {
                 alert(response.data.message);
             }
@@ -42,7 +42,7 @@ export default function Landing() {
 
     useEffect(() => {
 
-        axios.get("http://localhost:3001/api/login").then((response) => {
+        axios.get("https://blog-project-server-phi.vercel.app/api/login").then((response) => {
             console.log(response);
         })
 

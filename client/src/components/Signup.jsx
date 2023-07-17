@@ -11,6 +11,8 @@ export default function Signup() {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
 
+    axios.defaults.withCredentials = true;
+
 
 
     const submitForm = (event) => {

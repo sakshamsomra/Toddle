@@ -35,7 +35,7 @@ export default function Home() {
 
 
 
-        axios.put("http://localhost:3001/api/likes", formData).then(() => {
+        axios.put("https://blog-project-server-phi.vercel.app/api/likes", formData).then(() => {
             alert('you liked the post');
         })
 
@@ -53,7 +53,7 @@ export default function Home() {
 
 
     useEffect(() => {
-        axios.get("http://localhost:3001/api/get").then((response) => {
+        axios.get("https://blog-project-server-phi.vercel.app/api/get").then((response) => {
 
 
             setList(response.data);
@@ -67,7 +67,7 @@ export default function Home() {
 
     useEffect(() => {
 
-        axios.get("http://localhost:3001/api/login").then((response) => {
+        axios.get("https://blog-project-server-phi.vercel.app/api/login").then((response) => {
             console.log(response);
         })
 

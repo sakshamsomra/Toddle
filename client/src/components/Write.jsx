@@ -7,6 +7,8 @@ import Navbar from "./Navbar";
 
 export default function Write() {
 
+  axios.defaults.withCredentials = true;
+
   const [title, setTitle] = useState("")
   const [body, setBody] = useState("")
   const [name, setName] = useState("")

@@ -104,7 +104,7 @@ export default function Write() {
           <span></span>
         </label>
         
-        <button class="submit" onClick={submitForm}>Submit</button>
+        <button class="submit" type="submit" onClick={submitForm}>Submit</button>
         <p class="signin">Already have an acount ? <a href="#">Signin</a> </p>
       </form>
 

@@ -17,7 +17,7 @@ export default function Write() {
   const [user, setUser] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:3001/api/username").then((response) => {
+        axios.get("https://blog-project-server-phi.vercel.app/api/username").then((response) => {
 
 
             setUser(response.data);
@@ -56,7 +56,7 @@ export default function Write() {
 
 
 
-    axios.post("http://localhost:3001/api/blog", formData).then(() => {
+    axios.post("https://blog-project-server-phi.vercel.app/api/blog", formData).then(() => {
       alert('success for insert')
     })
 

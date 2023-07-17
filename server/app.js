@@ -18,7 +18,12 @@ const emailValidator = require('email-validator');
 
 const isValidEmail = emailValidator.validate('example@email.com');
 
-
+const sessionStore = new MySQLStore({
+  host: 'db4free.net',
+  user: 'puneetsomra',
+  password: 'hello123',
+  database: 'pblogger',
+});
 
 
 
@@ -31,6 +36,7 @@ app.use(cors({
 }));
 
 
+
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.urlencoded({ extended: true }));
@@ -41,31 +47,29 @@ app.use(session({
   resave: true,
   saveUninitialized: true,
   cookie: {
-    maxAge: 30 * 24 * 60 * 60 * 1000,  // Set the cookie to expire in 30 days
-  }
-  
+    secure: true,
+    sameSite: 'none',
+    maxAge: 3600000,  // Set the cookie to expire in 30 days
+  },
+  store: sessionStore,
+
 }));
 
 
-// const conn = mysql.createConnection({
-//   host: 'db4free.net',
-//   user: 'saksham',
-//   password: 'chicago1@',
-//   database: 'somradata',
-//   port: '3306',
-//   insecureAuth : true
 
-// }); 
 
 const conn = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'blog'
+  host: 'db4free.net',
+  user: 'puneetsomra',
+  password: 'hello123',
+  database: 'pblogger',
+  port: '3306',
+  insecureAuth : true
 });
 
+
 conn.connect((err) => {
-  if (err) throw err; 
+  if (err) throw err;
   console.log('Mysql Connected with App...');
 });
 
@@ -98,7 +102,7 @@ app.get('/api/get', (req, res) => {
 
 
 app.get('/api/myfeed', (req, res) => {
-  let sqlQuery = `SELECT * FROM blogs WHERE name = '${req.session.user}'` ;
+  let sqlQuery = `SELECT * FROM blogs WHERE name = '${req.session.user}'`;
 
   let query = conn.query(sqlQuery, (err, results) => {
     if (err) throw err;
@@ -115,7 +119,7 @@ app.get('/api/getcart', (req, res) => {
     res.send(results);
   });
 });
- 
+
 
 
 
@@ -138,32 +142,32 @@ app.post("/api/blog", upload.single('file'), (req, res) => {
 
 
 app.put("/api/likes", upload.single('file'), (req, res) => {
-  const id = req.body.id; 
+  const id = req.body.id;
 
   let sqlQuery = `UPDATE blogs SET likes = likes + 1 WHERE id = ${id}`;
 
   let query = conn.query(sqlQuery, id, (err, results) => {
-    if (err) throw err; 
+    if (err) throw err;
     res.send(apires(results));
   });
 
-  console.log(req.body); 
+  console.log(req.body);
 });
 
 
 
-app.post("/api/users",upload.single('file'), (req, res) => {
+app.post("/api/users", upload.single('file'), (req, res) => {
   let data = { email: req.body.email, username: req.body.username, password: req.body.password };
 
   let sqlQuery = "INSERT INTO users SET ?";
- 
+
   let query = conn.query(sqlQuery, data, (err, results) => {
     if (err) throw err;
 
-   
+
     res.send(apires(results));
-    
-    
+
+
   });
 
   console.log(req.body);
@@ -171,13 +175,13 @@ app.post("/api/users",upload.single('file'), (req, res) => {
 
 
 app.post("/api/addcart", (req, res) => {
-  let data = { name: req.body.name, price: req.body.price};
+  let data = { name: req.body.name, price: req.body.price };
 
   let qty = req.body.qty;
   let id = req.body.id;
 
-  let sqlQuery = "INSERT INTO cart SET ?" ;
-  
+  let sqlQuery = "INSERT INTO cart SET ?";
+
 
   let query = conn.query(sqlQuery, data, (err, results) => {
     if (err) throw err;
@@ -194,13 +198,13 @@ app.post("/api/addcart", (req, res) => {
 
 //   let sqlQuery = `SELECT * FROM blogs WHERE name LIKE '%${searchterm}%'`;
 
-  
+
 
 //   let query = conn.query(sqlQuery, data, (err, results) => {
 //     if (err) throw err;  
 //     res.send(apires(results));     
 //   });  
-   
+
 //   console.log(search);    
 // });  
 
@@ -209,58 +213,58 @@ app.post("/api/addcart", (req, res) => {
 
 
 
-app.get("/api/login",(req,res) => {
-  if(req.session.loggedIn){
-    res.send({loggedIn: true, user: req.session.user})
-  } else{
-    res.send({loggedIn: false})
+app.get("/api/login", (req, res) => {
+  if (req.session.loggedIn) {
+    res.send({ loggedIn: true, user: req.session.user })
+  } else {
+    res.send({ loggedIn: false })
   }
 
-  
+
 })
 
-app.post("/api/login",upload.single('file'), (req, res) => {
+app.post("/api/login", upload.single('file'), (req, res) => {
   const username = req.body.username;
-  const password = req.body.password; 
-
-  
+  const password = req.body.password;
 
 
-  conn.query("SELECT * FROM users WHERE username = ? AND password = ?", 
-  [username, password], 
-  (err, results) => {
-    if (err) {
-      console.log(err);
-    }else{
-      if(results.length > 0){
-        req.session.loggedIn = true;
-        req.session.user = username;
-        console.log(req.session.user);
-        res.send(results);
-      } else{
-        res.send({message: "Wrong Combination"});
+
+
+  conn.query("SELECT * FROM users WHERE username = ? AND password = ?",
+    [username, password],
+    (err, results) => {
+      if (err) {
+        console.log(err);
+      } else {
+        if (results.length > 0) {
+          req.session.loggedIn = true;
+          req.session.user = username;
+          console.log(req.session.user);
+          res.send(results);
+        } else {
+          res.send({ message: "Wrong Combination" });
+        }
       }
-    }
-    
 
-  });
+
+    });
 
   console.log(req.body);
 });
 
 
-app.post("/api/logout", (req,res) => {
+app.post("/api/logout", (req, res) => {
 
 
   let sqlQuery = "DELETE FROM cart";
 
   let query = conn.query(sqlQuery, (err, results) => {
-    
-    
+
+
   });
 
-  req.session.destroy(function(err) {
-    if(err) {
+  req.session.destroy(function (err) {
+    if (err) {
       console.log(err);
       res.status(500).send('An error occurred while logging out.');
     } else {
@@ -295,7 +299,7 @@ app.get('/api/username', (req, res) => {
 
 
 
-  
+
 
 function apires(results) {
   return JSON.stringify({ "status": 200, "error": null, "res": results });

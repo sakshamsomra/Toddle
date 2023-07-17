@@ -29,12 +29,13 @@ export default function Home() {
 
     const Handlelike = (id) => {
 
+        const formData = new FormData();
+        formData.append('id', id);
 
 
 
-        axios.put("http://localhost:3001/api/likes", {
-            id: id
-        }).then(() => {
+
+        axios.put("http://localhost:3001/api/likes", formData).then(() => {
             alert('you liked the post');
         })
 

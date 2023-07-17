@@ -41,6 +41,9 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.urlencoded({ extended: true }));
 
+
+app.set('trust proxy', 1); // Enable trust proxy
+
 app.use(session({
   key: "userId",
   secret: 'secret',

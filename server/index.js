@@ -149,7 +149,7 @@ app.put("/api/likes", upload.single('file'), (req, res) => {
 
   let sqlQuery = `UPDATE blogs SET likes = likes + 1 WHERE id = ${id}`;
 
-  let query = conn.query(sqlQuery, id, (err, results) => {
+  let query = conn.query(sqlQuery, (err, results) => {
     if (err) throw err;
     res.send(apires(results));
   });

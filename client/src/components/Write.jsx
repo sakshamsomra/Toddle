@@ -13,6 +13,7 @@ export default function Write() {
   const [body, setBody] = useState("")
   const [name, setName] = useState("")
   const [date, setDate] = useState("")
+  const [likes, setLikes] = useState("")
 
 
 
@@ -55,6 +56,7 @@ export default function Write() {
     formData.append('body', body);
     formData.append('name', name);
     formData.append('date', date);
+    formData.append('likes', likes);
 
 
 
@@ -100,6 +102,7 @@ export default function Write() {
           <input id="here" required="" placeholder="Write here" type="text" class="input" onChange={(e) => {
             setBody(e.target.value)
             setName(user)
+            setLikes("0")
           }} />
           <span></span>
         </label>

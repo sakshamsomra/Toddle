@@ -30,7 +30,7 @@ const sessionStore = new MySQLStore({
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(cors({
-  origin: ["http://localhost:3000"],
+  origin: ["blog-project-client.vercel.app"],
   methods: ["GET", "POST", "DELETE", "PUT"],
   credentials: true
 }));

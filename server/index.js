@@ -131,7 +131,7 @@ app.get('/api/getcart', (req, res) => {
 
 
 app.post("/api/blog", upload.single('file'), (req, res) => {
-  let data = { title: req.body.title, body: req.body.body, name: req.body.name, date: req.body.date };
+  let data = { title: req.body.title, body: req.body.body, name: req.body.name, date: req.body.date, likes: req.body.likes };
 
   let sqlQuery = "INSERT INTO blogs SET ?";
 

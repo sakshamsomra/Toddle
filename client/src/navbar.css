@@ -1,7 +1,7 @@
 .nav {
-    width: 90%;
+    width: 70%;
     height: 40px;
-    display: flex;
+    
     align-items: center;
     justify-content: flex-start;
     gap: 10px;
@@ -15,14 +15,30 @@
     transition-duration: .2s;
     margin: auto;
     margin-top: 10px;
+    display: flex;
+
+    width: max-content;
+  white-space: nowrap;
+    
   }
 
 
-  .navhold{
+  .nav-outer-container {
+    /* Set a fixed width for the outer container */
+    width: 90%;
+    /* Adjust this value as per your requirement */
+    overflow-x: auto; /* Enable horizontal scrolling when content overflows */
     margin: auto;
+  }
+
+  .navhold{
+    
     flex-wrap: wrap; 
   display: flex;
     justify-content: center;
+    position: relative;
+    min-width: 400px;
+    
     
   }
   

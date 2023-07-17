@@ -1,6 +1,6 @@
 body{
 
-  background-image: url("./components/photos/back.png") !important;
+  background-image: url("./components/photos/back.png") ;
   
   background-repeat: no-repeat;
   background-size: cover !important;

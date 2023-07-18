@@ -28,18 +28,18 @@ export default function Home() {
 
 
     const Handlelike = (id) => {
+       const formData = new FormData();
+       formData.append('id', id);
 
-        const formData = new FormData();
-        formData.append('id', id);
-
-
-
-
-        axios.put("https://blog-project-server-phi.vercel.app/api/likes", formData).then(() => {
-            alert('you liked the post');
-        })
-
-    }
+  axios
+    .put("https://blog-project-server-phi.vercel.app/api/likes", formData)
+    .then(() => {
+      alert('you liked the post');
+    })
+    .catch((error) => {
+      console.error("Error while updating likes:", error);
+    });
+};
 
 
 

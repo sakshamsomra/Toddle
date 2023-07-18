@@ -16,6 +16,8 @@ import { useSelector } from "react-redux";
 
 export default function Home() {
 
+    axios.defaults.withCredentials = true;
+
     const [searchterm, setSearchterm] = useState("");
     const [results, setResults] = useState([]);
     const [buttonClicked, setButtonClicked] = useState(false);
@@ -60,8 +62,6 @@ export default function Home() {
     }, []);
 
 
-
-    axios.defaults.withCredentials = true;
 
     useEffect(() => {
 

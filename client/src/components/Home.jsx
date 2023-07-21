@@ -35,7 +35,7 @@ export default function Home() {
 
         
 
-  axios.put("https://blog-project-server-phi.vercel.app/api/likes", formData).then(() => {
+  axios.post("https://blog-project-server-phi.vercel.app/api/likes", formData).then(() => {
       alert('you liked the post');
     })
     .catch((error) => {

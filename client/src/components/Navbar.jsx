@@ -51,7 +51,7 @@ export default function Navbar() {
 
                 <div class="navhold">
                     <Link to={"/sign"}><div id="navitem"> <img src={add}></img> SignIn</div></Link>
-                    <Link to={"/"}><div id="navitem" onClick={log}> <img src={login}></img> LogOut</div></Link>
+                    <Link ><button id="navitem" onClick={log}> <img src={login}></img> LogOut</button></Link>
                     <Link to={"/write"}><div id="navitem"><img src={edit}></img>Start Writing</div></Link>
                     <Link to={"/myinfo"}><div id="navitem"><img src={userp}></img>My Info</div></Link>
                 </div>

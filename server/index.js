@@ -256,7 +256,7 @@ app.post("/api/login", upload.single('file'), (req, res) => {
 });
 
 
-app.post("/api/logout", (req, res) => {
+app.post("/api/logout", upload.single('file'), (req, res) => {
 
 
   req.session.destroy(function (err) {

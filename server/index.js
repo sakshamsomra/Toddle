@@ -144,7 +144,7 @@ app.post("/api/blog", upload.single('file'), (req, res) => {
 });
 
 
-app.put("/api/likes", upload.single('file'), (req, res) => {
+app.post("/api/likes", upload.single('file'), (req, res) => {
   let id = req.body.id;
 
   let sqlQuery = `UPDATE blogs SET likes = likes + 1 WHERE id = ${id}`;

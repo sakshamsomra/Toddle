@@ -15,6 +15,7 @@ import axios from "axios";
 export default function Navbar() {
 
     axios.defaults.withCredentials = true;
+    const navigate = useNavigate();
 
     const [user, setUser] = useState([]);
 
@@ -34,6 +35,9 @@ export default function Navbar() {
         axios.post("https://blog-project-server-phi.vercel.app/api/logout").then((response) => {
             if (response.data.message) {
                 alert(response.data.message);
+            } else{
+                alert("Logged out");
+                navigate("/");
             }
 
         })

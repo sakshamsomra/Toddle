@@ -62,7 +62,7 @@ export default function Navbar() {
                             </li>
                             <li class="nav-item">
 
-                                <button type="button" onClick={log} id="logout"  class="nav-link" >Log Out</button>
+                                <Link ><button  onClick={log} id="logout"  class="nav-link" >Log Out</button></Link>
                             </li>
                             <li class="nav-item">
 

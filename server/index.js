@@ -15,6 +15,7 @@ const cookieParser = require('cookie-parser');
 const MySQLStore = require('express-mysql-session')(session);
 // app.use('/Images', express.static('Images'));
 
+
 const sessionStore = new MySQLStore({
   host: 'db4free.net',
   user: 'somrasaksham',
@@ -31,7 +32,7 @@ app.use(express.json());
 
 app.use(cors({
   origin: ["http://localhost:3000"],
-  methods: ["GET", "POST", "PUT", "DELETE"],
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
   credentials: true
 })); 
 
@@ -56,7 +57,6 @@ app.use(session({
     maxAge: 3600000,  // Set the cookie to expire in 30 days
   },
   store: sessionStore,
-
 }));
    
 
@@ -87,11 +87,11 @@ const storage = multer.diskStorage({
     cb(null, file.originalname)
   }
 });
- 
+
 const upload = multer({ storage: storage });
 
- 
- 
+
+
 
 app.get('/api/get', (req, res) => {
   let sqlQuery = "SELECT * FROM items";
@@ -129,7 +129,7 @@ app.get('/api/getprice', (req, res) => {
   
 
   
-app.put("/api/inc", upload.single('file'), (req, res) => {
+app.post("/api/inc", upload.single('file'), (req, res) => {
   const id = req.body.id; 
 
   let sqlQuery = `UPDATE cart SET qty = qty + 1 WHERE id = ${id}`;
@@ -145,7 +145,7 @@ app.put("/api/inc", upload.single('file'), (req, res) => {
 
 
 
-app.put("/api/dec", upload.single('file'), (req, res) => {
+app.post("/api/dec", upload.single('file'), (req, res) => {
   const id = req.body.id; 
 
   let sqlQuery = `UPDATE cart SET qty = qty - 1 WHERE id = ${id}`;
@@ -158,7 +158,7 @@ app.put("/api/dec", upload.single('file'), (req, res) => {
   console.log(req.body); 
 });
 
-app.post("/api/dec", upload.single('file'), (req, res) => {
+app.post("/api/deccheck", upload.single('file'), (req, res) => {
   const id = req.body.id; 
 
   let sqlQuery = `DELETE FROM cart where qty = 0`;
@@ -199,7 +199,7 @@ app.post("/api/order", upload.single('file'), (req, res) => {
 });  
    
 
-app.delete("/api/order", upload.single('file'), (req,res) => {
+app.post("/api/orderdel", upload.single('file'), (req,res) => {
 
   let sqlQuery = `DELETE FROM cart WHERE name = '${req.session.user}'`;
 
@@ -212,7 +212,7 @@ app.delete("/api/order", upload.single('file'), (req,res) => {
 
 
 
-app.put("/api/order", upload.single('file'), (req, res) => {
+app.post("/api/orderpu", upload.single('file'), (req, res) => {
   const username = req.session.user;
 
   let cartQuery = `SELECT prod_name, qty FROM cart WHERE name = ?`;
@@ -406,3 +406,4 @@ Server listening
 
  
 app.listen(3001);   
+

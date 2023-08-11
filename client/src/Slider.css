@@ -1,0 +1,77 @@
+.scroll-1::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .scroll-1::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background: #888;
+  }
+  
+  .container * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    color: #fff;
+  }
+  
+  .container {
+    display: flex;
+    overflow-x: scroll;
+    padding: 24px;
+    width: 300px;
+    scroll-snap-type: x mandatory;
+    scroll-padding-top: 24px;
+    border-radius: 8px;
+    gap: 20px;
+  }
+  
+  .container .cards {
+    flex: 0 0 100%;
+    overflow: hidden;
+    border-radius: 8px;
+    background-color: #141414;
+    scroll-snap-align: start;
+    height: 270px;
+    
+  }
+  
+  .cards .cards__image {
+    flex: 1;
+    
+    overflow: hidden;
+    height: auto;
+    height: 40%;
+    padding: 1%;
+    
+   
+  }
+
+  .cards .cards__image img{
+    width: 100%; /* Adjust the width of the image to fill the container */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain;
+    border-radius: 4px;
+  }
+  
+ 
+  
+ 
+  
+  .cards .cards__content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+  }
+  
+  .cards .cards__content .cards__title {
+    font-size: 32px;
+    color: #fff;
+    text-transform: capitalize;
+  }
+  
+  .cards .cards__content .cards__describe {
+    color: #fff;
+    font-size: 16px;
+  }

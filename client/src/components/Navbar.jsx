@@ -1,0 +1,89 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import logo from "./photos/logo.png";
+
+
+
+export default function Navbar() {
+    const navigate = useNavigate();
+
+
+    const [user, setUser] = useState([]);
+
+    useEffect(() => {
+        axios.get("http://localhost:3001/api/username").then((response) => {
+
+
+            setUser(response.data);
+            console.log(response.data);
+
+        });
+    }, []);
+
+
+
+
+    const log = () => {
+
+        axios.post("http://localhost:3001/api/logout", {
+
+
+        }).then((response) => {
+            if (response.data) {
+                alert(response.data);
+            }
+
+            navigate("/");
+
+        })
+
+    }
+
+    return (
+        <>
+
+            <nav class="navbar navbar-expand-lg bg-body-tertiary" id="navbar">
+                <div class="container-fluid">
+                    
+                    <div class="navbar-brand" ></div>
+                    <a class="navbar-brand" href="#">Welcome, {user}</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarScroll">
+                        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" >
+                            <li class="nav-item">
+                                <Link class="nav-link active" aria-current="page" to={"/home"}>Home</Link>
+                            </li>
+                            <li class="nav-item">
+                                <Link class="nav-link" to={"/signup"}>Sign Up</Link>
+                            </li>
+                            <li class="nav-item">
+
+                                <button type="button" onClick={log} class="nav-link" to={"/signup"}>Log Out</button>
+                            </li>
+                            <li class="nav-item">
+
+                                <Link type="button" class="nav-link" to={"/cart"}>Cart</Link>
+                            </li>
+
+                        </ul>
+                        <form class="d-flex" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+
+                        </form>
+                    </div>
+                </div>
+            </nav>
+
+
+
+
+
+
+        </>
+    )
+}

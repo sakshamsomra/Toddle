@@ -8,6 +8,8 @@ import logo from "./photos/logo.png";
 
 
 export default function Navbar() {
+
+    axios.defaults.withCredentials = true;
     const navigate = useNavigate();
 
 

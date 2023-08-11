@@ -19,7 +19,7 @@ export default function Home() {
 
     useEffect(() => {
 
-        axios.get("http://localhost:3001/api/login").then((response) => {
+        axios.get("https://toddle-server.vercel.app/api/login").then((response) => {
             console.log(response);
         })
 
@@ -34,7 +34,7 @@ export default function Home() {
     const [user, setUser] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:3001/api/username").then((response) => {
+        axios.get("https://toddle-server.vercel.app/api/username").then((response) => {
 
 
             setUser(response.data);
@@ -71,7 +71,7 @@ export default function Home() {
         formData.append('qty', 1);
 
 
-        axios.post("http://localhost:3001/api/addcart", formData).then(() => {
+        axios.post("https://toddle-server.vercel.app/api/addcart", formData).then(() => {
             alert('added to cart')
         })
 
@@ -87,7 +87,7 @@ export default function Home() {
 
 
     useEffect(() => {
-        axios.get("http://localhost:3001/api/get").then((response) => {
+        axios.get("https://toddle-server.vercel.app/api/get").then((response) => {
 
 
             setList(response.data);

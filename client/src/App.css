@@ -3,9 +3,6 @@
 }
 
 body{
- 
-  
-  
   
   background-repeat: no-repeat !important;
   
@@ -16,9 +13,9 @@ body{
 
 
 #logout{
-    background: 'none';
-    border: 'none';
-    color: 'transparent';
+    background: 'none' !important;
+    border: 'none' !important;
+    color: 'transparent' !important;
 
 }
 

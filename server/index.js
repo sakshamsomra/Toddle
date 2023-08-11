@@ -31,7 +31,7 @@ app.use(bodyParser.json());
 app.use(express.json());
 
 app.use(cors({
-  origin: ["http://localhost:3000"],
+  origin: ["https://toddle-one.vercel.app"],
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
   credentials: true
 })); 

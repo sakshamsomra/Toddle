@@ -30,10 +30,7 @@ export default function Navbar() {
 
     const log = () => {
 
-        axios.post("https://toddle-server.vercel.app/api/logout", {
-
-
-        }).then((response) => {
+        axios.post("https://toddle-server.vercel.app/api/logout").then((response) => {
             if (response.data) {
                 alert(response.data);
             }

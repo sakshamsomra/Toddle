@@ -49,15 +49,15 @@ export default function Cart() {
 
 
 
-        axios.post("http://localhost:3001/api/order").then(() => {
+        axios.post("https://toddle-server.vercel.app/api/order").then(() => {
             alert("order placed");
         })
 
-        axios.put("http://localhost:3001/api/order").then(() => {
+        axios.post("https://toddle-server.vercel.app/api/orderpu").then(() => {
 
         })
 
-        axios.delete("http://localhost:3001/api/order").then(() => {
+        axios.post("https://toddle-server.vercel.app/api/orderdel").then(() => {
 
         })
 
@@ -71,7 +71,7 @@ export default function Cart() {
         const formData = new FormData();
         formData.append('id', id);
 
-        axios.put("http://localhost:3001/api/inc", formData).then(() => {
+        axios.post("https://toddle-server.vercel.app/api/inc", formData).then(() => {
 
         })
 
@@ -85,14 +85,14 @@ export default function Cart() {
         const formData = new FormData();
         formData.append('id', id);
 
-        axios.put("http://localhost:3001/api/dec", formData).then(() => {
+        axios.post("https://toddle-server.vercel.app/api/dec", formData).then(() => {
 
         })
 
         await delay(2000);
 
 
-        axios.post("http://localhost:3001/api/dec", formData).then(() => {
+        axios.post("https://toddle-server.vercel.app/api/deccheck", formData).then(() => {
 
         })
 
@@ -103,7 +103,7 @@ export default function Cart() {
 
     const [list, setList] = useState([]);
     useEffect(() => {
-        axios.get("http://localhost:3001/api/getcart").then((response) => {
+        axios.get("https://toddle-server.vercel.app/api/getcart").then((response) => {
 
 
             setList(response.data);
@@ -116,7 +116,7 @@ export default function Cart() {
 
     const [cartprice, setCartprice] = useState([]);
     useEffect(() => {
-        axios.get("http://localhost:3001/api/getprice").then((response) => {
+        axios.get("https://toddle-server.vercel.app/api/getprice").then((response) => {
 
 
             const data = response.data;

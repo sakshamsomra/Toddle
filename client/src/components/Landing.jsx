@@ -97,7 +97,7 @@ export default function Landing() {
 
 
                 <button id="button" type="button" onClick={submitForm}>Submit</button>
-                <Link class="forgotLink" to={"/signup"}>Already have an account?</Link>
+                <Link class="forgotLink" to={"/signup"}>Don't have an account? Sign Up</Link>
 
             </form>
 

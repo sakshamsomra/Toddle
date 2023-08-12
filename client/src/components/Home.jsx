@@ -101,7 +101,15 @@ export default function Home() {
 
 
     if (user.length === 0) {
-        return <div>session expired, please login again</div>
+        return (
+            <div class="loadingspinner">
+                <div id="square1"></div>
+                <div id="square2"></div>
+                <div id="square3"></div>
+                <div id="square4"></div>
+                <div id="square5"></div>
+            </div>
+        )
     } else {
 
 

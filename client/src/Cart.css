@@ -1,5 +1,5 @@
 .cardc {
-    width: 200px;
+    width: 250px;
     height: 300px;
     padding: .8em;
     backdrop-filter: blur(10px) !important;
@@ -7,6 +7,7 @@
     overflow: visible;
     box-shadow: 4px 4px 4px 4px rgba(0,0,0,0.12), 4px 4px 4px 4px rgba(0,0,0,0.24);
     margin: 10px;
+    border-radius: 10px;
    
    }
    

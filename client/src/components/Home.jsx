@@ -61,24 +61,26 @@ export default function Home() {
 
     const addcart = (name,id, prod_name, description, price, qty) => {
 
+        if(user.length === 0){
+            alert("Login to add to cart");
+        }
 
-        const formData = new FormData();
-        formData.append('name', name);
-        formData.append('id', id);
-        formData.append('prod_name', prod_name);
-        formData.append('description', description);
-        formData.append('price', price);
-        formData.append('qty', 1);
+        else{
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('id', id);
+            formData.append('prod_name', prod_name);
+            formData.append('description', description);
+            formData.append('price', price);
+            formData.append('qty', 1);
 
 
-        axios.post("https://toddle-server.vercel.app/api/addcart", formData).then(() => {
-            alert('added to cart')
-        })
+            axios.post("https://toddle-server.vercel.app/api/addcart", formData).then(() => {
+                alert('added to cart')
+            })
 
-        // axios.put("http://localhost:3001/api/addcart", formData).then(() => {
             
-        // })
-
+        }
 
     }
 
@@ -100,7 +102,7 @@ export default function Home() {
 
 
 
-    if (user.length === 0) {
+    if (list.length === 0) {
         return (
             <div class="loadingspinner">
                 <div id="square1"></div>

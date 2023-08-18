@@ -15,7 +15,7 @@ export default function Contact() {
              <Navbar />
 
 
-            <div class="card">
+            <div class="cardcon">
                 <div class="infos">
                     <div class="image"></div>
                     <div class="info">

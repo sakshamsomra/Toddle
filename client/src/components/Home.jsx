@@ -219,7 +219,7 @@ export default function Home() {
 
 
                                     <div class="cardc">
-                                        <div class="cardc-img"><img src={earings}></img></div>
+                                        <div class="cardc-img"><img src={val.photo}></img></div>
                                         <div class="cardc-info">
                                             <p class="text-title">{val.prod_name} </p>
                                             <p class="text-body">{val.description}</p>

@@ -240,7 +240,7 @@ export default function Cart() {
                           }}
                           onLoadPaymentData={paymentRequest => {
                             console.log('oayment request', paymentRequest)
-                          }}
+                          }} onClick={order}
                          />
                     </div>
                 </div>

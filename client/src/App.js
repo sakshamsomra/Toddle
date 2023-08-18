@@ -7,6 +7,7 @@ import './Slider.css'
 import './Checkout.css'
 import './display.css'
 import './loader.css'
+import './contact.css'
 import Landing from './components/Landing';
 import Navbar from './components/Navbar';
 import Home from './components/Home';

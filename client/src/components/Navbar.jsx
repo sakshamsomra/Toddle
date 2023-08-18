@@ -68,6 +68,10 @@ export default function Navbar() {
 
                                 <Link type="button" class="nav-link" to={"/cart"}>Cart</Link>
                             </li>
+                            <li class="nav-item">
+
+                                <Link type="button" class="nav-link" to={"/contact"}>Contact</Link>
+                            </li>
 
                         </ul>
                         <form class="d-flex" role="search">

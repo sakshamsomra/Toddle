@@ -35,7 +35,7 @@ export default function Contact() {
                                 </span>
                             </p>
                             <p class="flex">
-                                P.no
+                                Contact
                                 <span class="state-value">
                                     +91 9646486947
                                 </span>

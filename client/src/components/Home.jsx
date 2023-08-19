@@ -9,6 +9,7 @@ import earings from "./photos/earings.jpg"
 import logo from "./photos/logo.png"
 import axios from "axios";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 import { useState, useEffect } from "react";
 
 
@@ -221,8 +222,7 @@ export default function Home() {
 
                 </div>
 
-
-
+                <Footer />
 
 
             </>

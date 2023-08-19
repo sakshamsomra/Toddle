@@ -129,7 +129,7 @@ export default function Home() {
                             <div class="content">
                                 <span class="heading">01</span>
                                 <span class="content">Best designs </span>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, totam velit? Iure nemo labore inventore?</p>
+                                <p>Our design philosophy revolves around pushing the boundaries of creativity. We constantly seek inspiration from global trends, art, culture, and nature to create jewelry pieces that are as unique as you are.</p>
                                 <a href="#">Read More</a>
                             </div>
                         </div>
@@ -139,8 +139,8 @@ export default function Home() {
                         <div class="box">
                             <div class="content">
                                 <span class="heading">02</span>
-                                <span class="content">Easy Exchange </span>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, totam velit? Iure nemo labore inventore?</p>
+                                <span class="content">Exclusive Collections </span>
+                                <p>Our Exclusive Collection features limited edition designs that are meticulously crafted to be truly unique. </p>
                                 <a href="#">Read More</a>
                             </div>
                         </div>
@@ -150,7 +150,7 @@ export default function Home() {
                             <div class="content">
                                 <span class="heading">03</span>
                                 <span class="content">Easy Exchange </span>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, totam velit? Iure nemo labore inventore?</p>
+                                <p>We offer a generous exchange window, allowing you to make changes if you're not completely satisfied with your purchase. You can exchange any item within 1 week from the date of purchase.</p>
                                 <a href="#">Read More</a>
                             </div>
                         </div>
@@ -159,47 +159,18 @@ export default function Home() {
                         <div class="box">
                             <div class="content">
                                 <span class="heading">04</span>
-                                <span class="content">! year warranty </span>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, totam velit? Iure nemo labore inventore?</p>
+                                <span class="content">Transparent Pricing </span>
+                                <p>We're proud to state that our pricing is free from any hidden fees or surprises. The price you see is the price you pay. </p>
                                 <a href="#">Read More</a>
                             </div>
                         </div>
                     </div>
+                
                 </div>
 
 
 
 
-
-                <div class="container scroll-1">
-                    <div class="cards">
-                        <div class="cards__image"><img src={necklace} ></img></div>
-                        <div class="cards__content">
-                            <span class="cards__title">Necklace</span>
-                            <p class="cards__describe">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="cards">
-                        <div class="cards__image"><img src={hand}></img></div>
-                        <div class="cards__content">
-                            <span class="cards__title">Bangles</span>
-                            <p class="cards__describe">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="cards">
-                        <div class="cards__image"><img src={earings}></img></div>
-                        <div class="cards__content">
-                            <span class="cards__title">Earings</span>
-                            <p class="cards__describe">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            </p>
-                        </div>
-                    </div>
-                </div>
 
 
                 <div class="heading">Explore</div>

@@ -15,6 +15,7 @@ import Home from './components/Home';
 import Signup from './components/Signup';
 import Cart from './components/Cart';
 import Contact from './components/Contact';
+import Orders from './components/Orders';
 import {
   BrowserRouter as Router,
   Route,
@@ -47,6 +48,7 @@ function App() {
         <Route path="/signup" element={< Signup />} />
         <Route path="/cart" element={< Cart />} />
         <Route path="/contact" element={< Contact />} />
+        <Route path="/orders" element={< Orders />} />
 
       </Routes>
 

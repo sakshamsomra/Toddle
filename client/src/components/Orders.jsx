@@ -12,7 +12,7 @@ export default function Orders() {
 
 
     useEffect(() => {
-        axios.get("http://localhost:3001/api/orders").then((response) => {
+        axios.get("https://toddle-server.vercel.app/api/orders").then((response) => {
 
 
             setList(response.data);

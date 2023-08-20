@@ -113,6 +113,16 @@ app.get('/api/getcart', (req, res) => {
   });
 });
 
+
+app.get('/api/orders', (req, res) => {
+  let sqlQuery = `SELECT * FROM orders WHERE name = '${req.session.user}'`;
+
+  let query = conn.query(sqlQuery, (err, results) => {
+    
+    res.send(results);
+  }); 
+});
+
  
 
 app.get('/api/getprice', (req, res) => {

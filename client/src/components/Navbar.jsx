@@ -66,6 +66,10 @@ export default function Navbar() {
                             </li>
                             <li class="nav-item">
 
+                                <Link type="button" class="nav-link" to={"/orders"}>Orders</Link>
+                            </li>
+                            <li class="nav-item">
+
                                 <Link type="button" class="nav-link" to={"/cart"}>Cart</Link>
                             </li>
                             <li class="nav-item">

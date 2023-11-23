@@ -14,6 +14,8 @@ export default function Navbar() {
 
 
     const [user, setUser] = useState([]);
+    const [search, setSearch] = useState("");
+    const [res, setRes] = useState([]);
 
     useEffect(() => {
         axios.get("https://toddle-server.vercel.app/api/username").then((response) => {
@@ -24,6 +26,16 @@ export default function Navbar() {
 
         });
     }, []);
+
+
+    useEffect(() => {
+        axios.get(`https://toddle-server.vercel.app/api/search/?search=${search}`).then((response) => {
+
+            setRes(response.data);
+
+
+        });
+    }, [search]);
 
 
 
@@ -79,9 +91,19 @@ export default function Navbar() {
 
                         </ul>
                         <form class="d-flex" role="search">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" onChange={(e) => {
+                                setSearch(e.target.value) />
 
                         </form>
+                            {search.trim() !== '' && Array.isArray(res) && res.length > 0 ? (
+                            res.map((item) => (
+                                <div key={item.id}>
+                                    {item.prod_name}
+                                </div>
+                            ))
+                        ) : (
+                            <p></p>
+                        )}
                     </div>
                 </div>
             </nav>

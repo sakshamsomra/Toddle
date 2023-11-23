@@ -92,7 +92,8 @@ export default function Navbar() {
                         </ul>
                         <form class="d-flex" role="search">
                             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" onChange={(e) => {
-                                setSearch(e.target.value) />
+                                setSearch(e.target.value) 
+                                    }} />
 
                         </form>
                             {search.trim() !== '' && Array.isArray(res) && res.length > 0 ? (

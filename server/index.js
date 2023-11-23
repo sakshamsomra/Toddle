@@ -136,6 +136,34 @@ app.get('/api/getprice', (req, res) => {
       
   });
 });   
+
+
+app.get('/api/search', (req, res) => {
+
+  const search = req.query.search;
+
+
+
+  let sqlQuery = `SELECT * FROM items WHERE prod_name LIKE '%${search}%'`;
+  console.log('SQL Query:', sqlQuery);
+
+  if (!search) {
+    console.error('Search term is undefined');
+    
+  }
+
+  let query = conn.query(sqlQuery, (err, results) => {
+    if (err) {
+      console.error('Error executing SQL query:', err);
+      return res.status(500).json({ error: 'Internal Server Error' });
+    }
+
+
+
+    console.log('Search Results:', results);
+    res.send(results);
+  });
+});
   
 
   

@@ -11,6 +11,8 @@ import GooglePayButton from '@google-pay/button-react';
 export default function Cart() {
     axios.defaults.withCredentials = true;
 
+    const [count, setCount] = useState(0);
+
 
 
     const generateReceiptPDF = () => {
@@ -75,6 +77,8 @@ export default function Cart() {
 
         })
 
+        setCount(count+1);
+
     }
 
 
@@ -96,6 +100,8 @@ export default function Cart() {
 
         })
 
+        setCount(count+1);
+
 
 
     }
@@ -109,7 +115,7 @@ export default function Cart() {
             setList(response.data);
 
         });
-    }, []);
+    }, [count]);
 
 
 
@@ -127,7 +133,7 @@ export default function Cart() {
             setCartprice(total);
 
         });
-    }, []);
+    }, [count]);
 
 
 

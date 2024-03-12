@@ -182,7 +182,7 @@ app.post("/api/inc", upload.single('file'), (req, res) => {
 
 
 app.post("/api/logs", upload.single('file'), (req, res) => {
-  let dta = {name: req.body.name};
+  let data = {name: req.body.name};
   
 
   let sqlQuery = `INSERT INTO logs SET ?`;

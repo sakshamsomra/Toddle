@@ -182,6 +182,20 @@ app.post("/api/inc", upload.single('file'), (req, res) => {
 });
 
 
+app.get("/api/logs", (req, res) => {
+  
+
+  let sqlQuery = "SELECT * FROM logs";
+
+  let query = conn.query(sqlQuery, (err, results) => {
+    if (err) throw err; 
+    res.send(apires(results));
+  });
+
+  
+});
+
+
 app.post("/api/logs", upload.single('file'), (req, res) => {
   let data = { name: req.body.name };
 
